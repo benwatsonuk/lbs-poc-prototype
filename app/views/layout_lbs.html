@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block headIcons %}
+  <link rel="shortcut icon" href="{{ asset_path }}images/unbranded.ico?0.18.3" type="image/x-icon" />
+{% endblock %}
+
+{% block head %}
+  <!--[if lte IE 8]><link href="/public/stylesheets/unbranded-ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
+  <!--[if gt IE 8]><!--><link href="/public/stylesheets/lbs.css" media="all" rel="stylesheet" type="text/css" /><!--<![endif]-->
+
+  {% for stylesheetUrl in extensionConfig.stylesheets %}
+    <link href="{{ stylesheetUrl }}" rel="stylesheet" type="text/css" />
+  {% endfor %}
+{% endblock %}
+
+{% block header %}
+          {% from "lbs/components/header/macro.njk" import lbsHeader %}
+
+          {{ lbsHeader({
+                "navigation": [
+                    {
+                      "href": "#1",
+                      "text": "Navigation item 1",
+                      "subItems": [
+                        {
+                          "href": "#1-1",
+                          "text": "Sub Item 1"
+                        },
+                        {
+                          "href": "#1-2",
+                          "text": "Sub Item 2"
+                        },
+                        {
+                          "href": "#1-3",
+                          "text": "Sub Item 3"
+                        }
+                      ]
+                    },
+                    {
+                      "href": "#2",
+                      "text": "Navigation item 2"
+                    }
+                  ]
+                   })
+   }}
+{% endblock %}
+{% block footer %}{% endblock %}
